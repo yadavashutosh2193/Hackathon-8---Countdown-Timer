@@ -4,18 +4,20 @@ import '../styles/App.css';
 const App = () => {
   // write your code here 
 const [counter, setCounter] = useState(0);
+const [clock, setClock] = useState(true)
   const keyDownfunction = (keypress)=>{
     setCounter(0);
+    setClock(false);
     let inputvalue = Math.floor(keypress.target.value);
     if(isNaN(inputvalue)){
       setCounter(0);
     }else if(keypress.keyCode === 13){
-      setCounter(inputvalue);  
-     
+      setCounter(inputvalue); 
+      setClock(true);  
     }
   } 
- useEffect(()=>{
-   if(counter > 0){
+ React.useEffect(()=>{
+   if(counter > 0 && clock){
     setTimeout(()=>{
       setCounter(counter-1);
     },1000)
