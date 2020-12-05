@@ -15,15 +15,20 @@ const [counter, setCounter] = useState(0);
     }
   } 
  useEffect(()=>{
-  const intervalId = setInterval(counterfn, 1000);
-  function counterfn(){
-    if(counter == 0){
-      clearInterval(intervalId);
-    }
-    else{
-      setCounter(counter - 1);
-    }
-  }
+   if(counter > 0){
+    setTimeout(()=>{
+      setCounter(counter-1);
+    },1000)
+   }
+  // const intervalId = setInterval(counterfn, 1000);
+  // function counterfn(){
+  //   if(counter == 0){
+  //     clearInterval(intervalId);
+  //   }
+  //   else{
+  //     setCounter(counter - 1);
+  //   }
+  // }
  });
   
   return (
