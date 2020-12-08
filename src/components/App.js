@@ -20,7 +20,7 @@ const [clock, setClock] = useState(true)
   if(!clock){
     setCounter(0);
   }
-   if(counter > 0 && clock){
+  else if(counter > 0 && clock){
     setTimeout(()=>{
       setCounter(counter-1);
     },1000)
