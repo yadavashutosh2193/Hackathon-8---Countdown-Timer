@@ -8,7 +8,7 @@ const [clock, setClock] = useState(true)
   const keyDownfunction = (keypress)=>{
     setCounter(0);
     setClock(false);
-    let inputvalue = Math.floor(keypress.target.value);
+    const inputvalue = Math.floor(keypress.target.value);
     if(isNaN(inputvalue)){
       setCounter(0);
     }else if(keypress.keyCode === 13){
@@ -17,20 +17,15 @@ const [clock, setClock] = useState(true)
     }
   } 
  React.useEffect(()=>{
+  if(!clock){
+    setCounter(0);
+  }
    if(counter > 0 && clock){
     setTimeout(()=>{
       setCounter(counter-1);
     },1000)
    }
-  // const intervalId = setInterval(counterfn, 1000);
-  // function counterfn(){
-  //   if(counter == 0){
-  //     clearInterval(intervalId);
-  //   }
-  //   else{
-  //     setCounter(counter - 1);
-  //   }
-  // }
+   
  });
   
   return (
